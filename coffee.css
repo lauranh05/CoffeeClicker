@@ -1,3 +1,10 @@
+/*FONTS*/
+.press-start-2p-regular {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
 /*IMPORTANT*/
 .hidden{
     display: none !important;
@@ -6,8 +13,30 @@
 /*BODY*/
 body{
     margin: 0;
-    padding: 0;
     overflow: hidden;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+main{
+    aspect-ratio: 630 / 380; 
+    max-width: 100vw;
+    max-height: 100vh;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu, .game{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
 }
 
 /*MAIN MENU*/
@@ -16,7 +45,6 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
     image-rendering: pixelated;
     background-attachment: fixed;
 }
@@ -26,7 +54,6 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
     image-rendering: pixelated;
     background-attachment: fixed;
 }
@@ -71,8 +98,8 @@ body{
 
 #btn-clicker{
     background-image: url('images/off.png');
-    width: 200px;
-    height: 200px;
+    width: 170px;
+    height: 170px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -81,14 +108,14 @@ body{
     cursor: pointer;
     transition: 0.3s;
     position: absolute;
-    left: 43.5%;
-    top: 150px;
+    left: 42%;
+    top: 145px;
 }
 
 #btn-clicker:active{
     background-image: url('images/on.png');
-    width: 200px;
-    height: 200px;
+    width: 170px;
+    height: 170px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -100,7 +127,7 @@ body{
 
 #btn-back{
     background-image: url('images/back.png');
-    width: 300px;
+    width: 280px;
     height: 120px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -108,11 +135,13 @@ body{
     background-color: transparent; 
     border: none; 
     cursor: pointer;
-    top: 20px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 #btn-back:hover{
     background-image: url('images/backhover.png');
-    width: 300px;
+    width: 280px;
     height: 120px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -124,7 +153,7 @@ body{
 }
 #btn-back:active{
     background-image: url('images/backhover.png');
-    width: 300px;
+    width: 280px;
     height: 120px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -135,14 +164,17 @@ body{
 }
 
 .cup{
-    width: 256px;
-    height: 256px;
+    width: 180px;
+    height: 180px;
     background-image: url('images/coffee.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    image-rendering: pixelated; 
-    margin: 460px auto 0;
+    image-rendering: pixelated;
+    position: absolute; 
+    bottom: 90px;
+    left: 49%;
+    transform: translateX(-50%);
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
@@ -162,7 +194,7 @@ body{
 
 .plus-animation{
     position: absolute;
-    width: 200px;
+    width: 180px;
     height: auto;
     pointer-events: none; 
     animation: flyUp 1s ease-out forwards; 
@@ -193,6 +225,7 @@ body{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    
 }
 
 .btn:hover{
@@ -206,15 +239,15 @@ body{
 }
 
 .left{
-    position: fixed;
-    bottom: 20px;
+    position: absolute; 
+    bottom: 5px;
     left: 20px;
     background-image: url('images/person.png');
 }
 
 .right{
-    position: fixed;
-    bottom: 20px;
+    position: absolute; 
+    bottom: 5px;
     right: 20px;
     display: flex; 
     flex-direction: row;
@@ -223,10 +256,11 @@ body{
 }
 
 .rightUp{
-    position: fixed;
-    top: 20px;
+    position: absolute; 
+    top: 5px;
     right: 20px;
 }
+
 #btn-config{
     background-image: url('images/config.png');
 }
