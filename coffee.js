@@ -6,6 +6,8 @@
 //SCREENS
 let screenMenu = document.getElementById('menu');
 let screenGame = document.getElementById('game');
+let noback = document.getElementById('noback');
+noback.classList.add('hidden');
 
 //BUTTONS
 let btnStart = document.getElementById('btn-start');
@@ -15,6 +17,8 @@ let btnConfig = document.getElementById('btn-config');
 let btnProfile = document.getElementById('btn-profile');
 let btnMusic = document.getElementById('btn-music');
 let btnStatics = document.getElementById('btn-statics');
+let closeTicket = document.getElementById('closeTicket');
+let closeSetting = document.getElementById('closeSetting');
 
 //STATE OF GAME
 let coffeesCompleted = parseInt(localStorage.getItem('myCoffees')) || 0;
@@ -37,9 +41,24 @@ let normalCup = document.getElementById('cup');
 //IMAGES
 let plusAnimation = document.createElement('img');
 plusAnimation.classList.add('plus-animation');
+let idPaper = document.getElementById('idPaper');
+idPaper.classList.add('hidden');
+let ticketClass = document.getElementById('ticketClass');
+ticketClass.classList.add('hidden');
+let settingClass = document.getElementById('settingClass');
+settingClass.classList.add('hidden');
 
 //AUXILIARS
 let clickBtnMusic = 0;
+let clickProfile = 0;
+let clickStatic = 0;
+let clickSetting = 0;
+
+
+//TEXT
+let textTC = document.getElementById('textTC');
+let textCC = document.getElementById('textCC');
+let textC = document.getElementById('textC');
 
 //-----------------------------------------------------------------------------------------------------------------
 //BUTTONS
@@ -72,6 +91,66 @@ btnMusic.addEventListener('click',function(){
         btnMusic.style.backgroundImage = "url('images/music.png')";
         clickBtnMusic = 0;
     }
+});
+
+btnProfile.addEventListener('click',function(){
+    if(clickProfile === 0){
+        idPaper.classList.add('in');
+        idPaper.classList.remove('out');
+        idPaper.classList.remove('hidden');
+        clickProfile = 1;
+    }
+    else{
+        idPaper.classList.remove('in');
+        idPaper.classList.add('out');
+        clickProfile = 0;
+        setTimeout(() => {
+            if(clickProfile === 0){
+                idPaper.classList.add('hidden');
+            }
+        }, 400);
+    }
+});
+
+btnStatics.addEventListener('click', function(){
+    textTC.innerHTML = `Total Clicks: ${clicksTotal}`;
+    textCC.innerHTML = `Completed Coffees: ${coffeesCompleted}`;
+    textC.innerHTML = `Total Coins ${coinsTotal}`;
+    if(clickStatic === 0){
+        ticketClass.classList.remove('hidden');
+        noback.classList.remove('hidden');
+        clickStatic = 1;
+    }
+    else{
+        clickStatic = 0;
+        ticketClass.classList.add('hidden');
+        noback.classList.add('hidden');
+    }
+});
+
+closeTicket.addEventListener('click',function(){
+    clickStatic = 0;
+    ticketClass.classList.add('hidden');
+    noback.classList.add('hidden');
+});
+
+btnConfig.addEventListener('click',function(){
+    if(clickSetting === 0){
+        settingClass.classList.remove('hidden');
+        noback.classList.remove('hidden');
+        clickSetting = 1;
+    }
+    else{
+        clickSetting = 0;
+        settingClass.classList.add('hidden');
+        noback.classList.add('hidden');
+    }
+});
+
+closeSetting.addEventListener('click',function(){
+    clickSetting = 0;
+    settingClass.classList.add('hidden');
+    noback.classList.add('hidden');
 });
 
 //-----------------------------------------------------------------------------------------------------------------
@@ -129,9 +208,9 @@ btnClicker.addEventListener('click', function(event){
             plusAnimation.remove();
         }, 1000);
 
-        /*localStorage.setItem('myCoffees', coffeesCompleted);
+        localStorage.setItem('myCoffees', coffeesCompleted);
         localStorage.setItem('myCoins', coinsTotal);
-        localStorage.setItem('totalClicks', clicksTotal);*/
+        localStorage.setItem('totalClicks', clicksTotal);
  
         normalCup.classList.add('animation-out');
         setTimeout(function(){
@@ -152,12 +231,6 @@ btnClicker.addEventListener('click', function(event){
 
         },500);
     }
-    //TEST
-    console.log('Numero random: '+ randomNumber);
-    console.log('Clicks totales: '+ clicksTotal);
-    console.log('Cafes completados: '+coffeesCompleted);
-    console.log('Mondeas: '+ coinsTotal);
-    console.log('clicks mov: '+ clicks);
 });
 
 

@@ -9,6 +9,15 @@
 .hidden{
     display: none !important;
 }
+#noback{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1acb;
+    z-index: 9998;
+}
 
 /*BODY*/
 body{
@@ -60,8 +69,8 @@ main{
 
 #btn-start{
     background-image: url('images/button.png');
-    width: 460px;
-    height: 200px;
+    width: 35%;
+    height: 25%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -71,11 +80,10 @@ main{
     position: absolute;
     left: 50%;
     transform: translateX(-50%); 
-    bottom: 10px;
+    bottom: 0%;
 }
 #btn-start:hover{
     background-image: url('images/buttonhover.png');
-    width: 460px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -86,8 +94,7 @@ main{
 }
 #btn-start:active{
     background-image: url('images/buttonhover.png');
-    width: 455px;
-    height: 195px;
+    width: 30%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -98,8 +105,6 @@ main{
 
 #btn-clicker{
     background-image: url('images/off.png');
-    width: 170px;
-    height: 170px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -108,14 +113,15 @@ main{
     cursor: pointer;
     transition: 0.3s;
     position: absolute;
-    left: 42%;
-    top: 145px;
+    left: 48.5%;
+    top: 27%;
+    width: 14%; 
+    aspect-ratio: 1 / 1;
+    transform: translate(-50%, -50%);
 }
 
 #btn-clicker:active{
     background-image: url('images/on.png');
-    width: 170px;
-    height: 170px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -127,8 +133,8 @@ main{
 
 #btn-back{
     background-image: url('images/back.png');
-    width: 280px;
-    height: 120px;
+    width: 20%;
+    height: 15%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -136,13 +142,11 @@ main{
     border: none; 
     cursor: pointer;
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 0%;
+    left: 0.5%;
 }
 #btn-back:hover{
     background-image: url('images/backhover.png');
-    width: 280px;
-    height: 120px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -153,8 +157,6 @@ main{
 }
 #btn-back:active{
     background-image: url('images/backhover.png');
-    width: 280px;
-    height: 120px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -164,15 +166,15 @@ main{
 }
 
 .cup{
-    width: 180px;
-    height: 180px;
+    width: 14%;
+    aspect-ratio: 1 / 1;
     background-image: url('images/coffee.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     image-rendering: pixelated;
     position: absolute; 
-    bottom: 90px;
+    bottom: 10%; 
     left: 49%;
     transform: translateX(-50%);
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
@@ -202,25 +204,13 @@ main{
     image-rendering: pixelated;
 }
 
-@keyframes flyUp {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-60px);
-    }
-}
 
 .btn{
-    width: 100px;
-    height: 100px;
+    width: 8%;
+    aspect-ratio: 1 / 1;
     background-color: transparent;
     border: none;
     cursor: pointer;
-    
-    
     image-rendering: pixelated; 
     background-size: contain;
     background-repeat: no-repeat;
@@ -240,25 +230,30 @@ main{
 
 .left{
     position: absolute; 
-    bottom: 5px;
-    left: 20px;
+    bottom: 1%;
+    left: 1%;
     background-image: url('images/person.png');
 }
 
 .right{
     position: absolute; 
-    bottom: 5px;
-    right: 20px;
+    bottom: 1%;
+    right: 1%;
     display: flex; 
     flex-direction: row;
-    gap: 15px;
+    gap: 10%;
     z-index: 9999;
+    width: 16%
+}
+
+.right .btn{
+    width: 45%;
 }
 
 .rightUp{
     position: absolute; 
-    top: 5px;
-    right: 20px;
+    top: 1%;
+    right: 1%;
 }
 
 #btn-config{
@@ -271,5 +266,160 @@ main{
     background-image: url('images/statics.png');
 }
 
+.idClass{
+    position: absolute;
+    width: 20%;
+    bottom: 15%;
+    left: 1%;
+    z-index: 9999;
+}
 
+/*ANIMATIONS*/
+@keyframes flyUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+}
+
+@keyframes in{
+    0%{
+        opacity: 0%;
+        transform: translateY(20px);
+    }
+    100%{
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}
+
+.in{
+    animation: in 0.4s ease-in-out;
+}
+
+@keyframes out{
+    0%{
+        opacity: 100%;
+        transform: translateY(0);
+    }
+    100%{
+        opacity: 0%;
+        transform: translateY(20px);
+    }
+}
+
+.out{
+    animation: out 0.4s ease-in-out;
+}
+
+#ticketClass{
+    background-image: url('images/ticket.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    text-align: left;
+    font-family: "Press Start 2P", system-ui;
+    color: #1a1a1a;
+    font-size: 1.3em;
+    line-height: 0.4;
+    box-sizing: border-box;
+    padding-top: 13%;
+    padding-left: 4%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: 60%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 0.5;
+    z-index: 9999;
+}
+
+#ticketClass button{
+    background-image: url(images/close.png);
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20%;
+    aspect-ratio: 1 / 1;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    image-rendering: pixelated; 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#settingClass{
+    background-image: url('images/settings.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+    text-align: left;
+    font-family: "Press Start 2P", system-ui;
+    color: #1a1a1a;
+    font-size: 1.3em;
+    line-height: 0.4;
+    box-sizing: border-box;
+    padding-top: 13%;
+    padding-left: 4%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: 60%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 0.5;
+    z-index: 9999;
+}
+
+#settingClass button{
+    background-image: url(images/close.png);
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20%;
+    aspect-ratio: 1 / 1;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    image-rendering: pixelated; 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/*PHONE*/
+.mobileScreen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1a1a1ad8;
+    color: aliceblue;
+    font-family: "Press Start 2P", system-ui;
+    text-align: center;
+    font-size: 2em;
+    z-index: 99999;
+}
+
+@media(max-width:1000px){
+    .mobileScreen{
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #game {
+        display: none;
+    }
+
+}
 
